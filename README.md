@@ -46,7 +46,7 @@ An enterprise-ready, multi-tenant Real Estate Customer Relationship Management (
 
 ## Live Demo
 
-> **Live Application URL**: [[YOUR_LIVE_URL]](https://[YOUR_LIVE_URL])  
+> **Live Application URL**: [[https://multi-tenant-real-estate-crm-fronte.vercel.app/]](https://[YOUR_LIVE_URL])  
 > **API Documentation**: [[YOUR_API_DOCS_URL]](https://[YOUR_BACKEND_URL]/docs)  
 > *Note: Hosted on free-tier infrastructure. If idle, the backend server may take 30–50 seconds to spin up from cold sleep.*
 
