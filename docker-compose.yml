@@ -1,0 +1,69 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: sp_crm_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sp_crm
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sp_crm_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    platform: linux/amd64
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sp_crm_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/sp_crm
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sp_crm
+      - ENVIRONMENT=development
+      - SECRET_KEY=local_development_insecure_secret_key_32bytes_min!
+      - ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+      - AGENCY_EMAILS=admin@socialpulse.agency,demo_admin@socialpulse.agency
+      - DEMO_MODE=true
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./scripts:/app/scripts
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - sp_crm_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sp_crm_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_SHOW_DEMO_CREDENTIALS=true
+    depends_on:
+      - backend
+    networks:
+      - sp_crm_network
+
+networks:
+  sp_crm_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

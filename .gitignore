@@ -1,0 +1,87 @@
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Database & Data files
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.xlsx
+~$*.xlsx
+*.csv
+
+# Logs & Output files
+*.log
+*.out
+*.txt
+!requirements.txt
+!frontend/requirements.txt
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Study Guide & Private Docs (Maintained Outside Public Repo)
+PROJECT_STUDY_GUIDE.md
+
+# AI & Developer Tool Files
+.claude/
+CLAUDE.md
+.gemini/
+GEMINI.md
+.antigravity/
+.cursor/
+.cursorrules
+.windsurf/
+.agent/
+.agents/
+.aider*
+AGENTS.md
+brain/
+artifacts/
+walkthrough/
+scratch/

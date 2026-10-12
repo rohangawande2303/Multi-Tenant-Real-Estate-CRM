@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: social-pulse-crm-backend
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: Dockerfile
+    plan: free
+    region: ohio
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: AGENCY_EMAILS
+        sync: false
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true

@@ -1,0 +1,424 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* =========================================================================
+     LIGHT THEME DESIGN TOKENS - PREMIUM GLASSMORPHISM
+     Soft canvas with ambient aurora refraction and pure frosted glass surfaces
+     ========================================================================= */
+  :root {
+    /* Brand Accent (#8019ef purple) */
+    --primary: 268 86% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 268 86% 46%;
+    --primary-soft: 268 86% 52% / 0.12;
+    --primary-ring: 268 86% 52%;
+
+    /* Canvas & Surfaces */
+    --background: 240 18% 96%;       /* #f3f3f8 soft airy canvas */
+    --foreground: 240 16% 9%;        /* #101016 deep contrast text */
+    --card: 0 0% 100%;
+    --card-foreground: 240 16% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 16% 9%;
+
+    /* Secondary & Muted */
+    --secondary: 240 14% 94%;
+    --secondary-foreground: 240 12% 18%;
+    --muted: 240 12% 93%;
+    --muted-foreground: 240 8% 46%;  /* #6b6b7d balanced neutral */
+    --accent: 268 86% 96%;
+    --accent-foreground: 268 86% 36%;
+
+    /* Semantic Status */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 240 12% 88%;
+    --border-strong: 240 12% 80%;
+    --input: 240 12% 88%;
+    --ring: 268 86% 52%;
+    --radius: 1.125rem;              /* 18px smooth radius */
+
+    /* Glass Surfaces Light Mode - Pure Frosted Acrylic with Refraction */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.48) 100%);
+    --glass-border: rgba(255, 255, 255, 0.85);
+    --glass-border-subtle: rgba(255, 255, 255, 0.55);
+    --glass-inner-shine: inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 1px 0 rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 14px 38px -6px rgba(110, 100, 150, 0.08), 0 3px 10px -2px rgba(110, 100, 150, 0.04);
+    --glass-shadow-hover: 0 20px 48px -8px rgba(128, 25, 239, 0.16), 0 6px 18px -2px rgba(110, 100, 150, 0.08);
+
+    /* Charts */
+    --chart-1: 268 86% 52%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 217 91% 60%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 84% 60%;
+  }
+
+  /* =========================================================================
+     DARK THEME DESIGN TOKENS - PREMIUM CYBER/AI GLASSMORPHISM
+     Deep midnight obsidian with illuminated glass borders and specular shine
+     ========================================================================= */
+  .dark {
+    /* Brand Accent */
+    --primary: 268 86% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 268 86% 66%;
+    --primary-soft: 268 86% 60% / 0.18;
+    --primary-ring: 268 86% 60%;
+
+    /* Canvas & Surfaces */
+    --background: 240 22% 5%;        /* #09090f deep midnight violet */
+    --foreground: 240 14% 96%;       /* #f3f3f8 crisp high contrast */
+    --card: 240 18% 8%;
+    --card-foreground: 240 14% 96%;
+    --popover: 240 18% 8%;
+    --popover-foreground: 240 14% 96%;
+
+    /* Secondary & Muted */
+    --secondary: 240 18% 11%;
+    --secondary-foreground: 240 12% 90%;
+    --muted: 240 18% 11%;
+    --muted-foreground: 240 8% 62%;  /* #9595a6 soft secondary */
+    --accent: 268 86% 20%;
+    --accent-foreground: 268 86% 92%;
+
+    /* Semantic Status */
+    --success: 160 70% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 88% 54%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 78% 62%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 217 88% 64%;
+    --info-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 240 16% 16%;
+    --border-strong: 240 16% 24%;
+    --input: 240 16% 16%;
+    --ring: 268 86% 60%;
+
+    /* Glass Surfaces Dark Mode - Refracted Smoked Crystal */
+    --glass-bg: rgba(13, 13, 21, 0.65);
+    --glass-card-bg: linear-gradient(140deg, rgba(26, 24, 40, 0.62) 0%, rgba(13, 12, 22, 0.45) 100%);
+    --glass-border: rgba(255, 255, 255, 0.11);
+    --glass-border-subtle: rgba(255, 255, 255, 0.06);
+    --glass-inner-shine: inset 0 1px 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.45);
+    --glass-shadow: 0 16px 42px 0 rgba(0, 0, 0, 0.52), 0 3px 10px 0 rgba(0, 0, 0, 0.32);
+    --glass-shadow-hover: 0 24px 54px -4px rgba(128, 25, 239, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.45);
+
+    /* Charts */
+    --chart-1: 268 86% 64%;
+    --chart-2: 160 70% 50%;
+    --chart-3: 217 88% 66%;
+    --chart-4: 38 88% 58%;
+    --chart-5: 0 78% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+
+  /* Sleek modern scrollbars */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(140, 140, 170, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(140, 140, 170, 0.45);
+  }
+
+  .slim-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 200ms ease;
+  }
+  .slim-scrollbar:hover {
+    scrollbar-color: rgba(140, 140, 170, 0.35) transparent;
+  }
+  .slim-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .slim-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 9999px;
+    transition: background 200ms ease;
+  }
+  .slim-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: rgba(140, 140, 170, 0.35);
+  }
+}
+
+@layer components {
+  /* =========================================================================
+     PRO GLASSMORPHISM COMPONENTS
+     True frosted glass with specular inner edge shine & layered diffusion
+     ========================================================================= */
+
+  /* Standard Pro Glass Surface (Cards, Tables, Panels) */
+  .glass-card-pro {
+    position: relative;
+    background: var(--glass-card-bg);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow), var(--glass-inner-shine);
+    transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 240ms ease;
+  }
+
+  /* Specular Highlight along top bevel edge */
+  .glass-card-pro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      180deg, 
+      rgba(255, 255, 255, 0.35) 0%, 
+      rgba(255, 255, 255, 0.08) 35%, 
+      rgba(255, 255, 255, 0) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  .dark .glass-card-pro::before {
+    background: linear-gradient(
+      180deg, 
+      rgba(255, 255, 255, 0.22) 0%, 
+      rgba(255, 255, 255, 0.04) 40%, 
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0.9;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(128, 25, 239, 0.35);
+    box-shadow: var(--glass-shadow-hover), var(--glass-inner-shine);
+  }
+
+  /* Frosted Glass Navigation Bar & Sidebar */
+  .glass-shell {
+    background: var(--glass-bg);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-color: var(--glass-border);
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.06);
+  }
+
+  /* The Signature AI Hero Card: Holographic Iridescent Purple Glass */
+  .glass-hero-pro {
+    background: linear-gradient(135deg, rgba(128, 25, 239, 0.94) 0%, rgba(95, 15, 185, 0.90) 50%, rgba(142, 45, 252, 0.96) 100%);
+    backdrop-filter: blur(26px) saturate(200%);
+    -webkit-backdrop-filter: blur(26px) saturate(200%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: var(--radius);
+    box-shadow: 0 18px 44px -8px rgba(128, 25, 239, 0.52), 
+                inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.55),
+                inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Iridescent foil sheen reflection across the hero card */
+  .glass-hero-pro::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.18) 45%,
+      rgba(216, 180, 254, 0.28) 50%,
+      rgba(165, 243, 252, 0.22) 53%,
+      rgba(255, 255, 255, 0.12) 58%,
+      transparent 68%
+    );
+    transform: rotate(20deg);
+    pointer-events: none;
+    animation: iridescent-sweep 12s ease-in-out infinite;
+  }
+
+  .glass-hero-pro:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 52px -6px rgba(128, 25, 239, 0.65), 
+                inset 0 2px 3px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  /* Frosted Glass Pill & Chips */
+  .glass-pill {
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .glass-pill-light {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  /* Purple Accent Button */
+  .purple-gradient {
+    background: linear-gradient(135deg, #8019ef 0%, #9829f7 100%);
+    box-shadow: 0 6px 20px -3px rgba(128, 25, 239, 0.42), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+  }
+  .purple-gradient:hover {
+    background: linear-gradient(135deg, #7413de 0%, #8c1ff5 100%);
+    box-shadow: 0 8px 24px -2px rgba(128, 25, 239, 0.55), inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  /* AI Modern Tech Matrix Grid Pattern */
+  .bg-tech-grid {
+    background-image: radial-gradient(rgba(140, 140, 180, 0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 65% 55% at 50% 30%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 30%, #000 30%, transparent 100%);
+  }
+
+  .dark .bg-tech-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 25%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 25%, transparent 100%);
+  }
+
+  /* =========================================================================
+     ATMOSPHERIC AURORA ORBS & FLOATING LIGHT MOTES (ANIMATION ENGINE)
+     Hypnotic, organic, buttery-smooth background refraction for glassmorphism
+     ========================================================================= */
+  @keyframes aurora-float-1 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    33% { transform: translate3d(70px, 45px, 0) scale(1.12); }
+    66% { transform: translate3d(30px, 80px, 0) scale(0.96); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes aurora-float-2 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    33% { transform: translate3d(-60px, -50px, 0) scale(1.15); }
+    66% { transform: translate3d(-30px, 40px, 0) scale(0.92); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes aurora-float-3 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    33% { transform: translate3d(50px, -60px, 0) scale(1.08); }
+    66% { transform: translate3d(-40px, -30px, 0) scale(1.18); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes aurora-float-4 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(60px, 50px, 0) scale(1.14); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes aurora-float-5 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-50px, -40px, 0) scale(1.1); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes particle-drift {
+    0% {
+      transform: translateY(0px) translateX(0px) scale(0.9);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(-30px) translateX(12px) scale(1.2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(0px) translateX(0px) scale(0.9);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes iridescent-sweep {
+    0% {
+      transform: translate3d(-100%, -100%, 0) rotate(20deg);
+    }
+    40% {
+      transform: translate3d(100%, 100%, 0) rotate(20deg);
+    }
+    100% {
+      transform: translate3d(100%, 100%, 0) rotate(20deg);
+    }
+  }
+
+  .aurora-orb-1 {
+    animation: aurora-float-1 24s ease-in-out infinite;
+    will-change: transform;
+  }
+  .aurora-orb-2 {
+    animation: aurora-float-2 28s ease-in-out infinite;
+    will-change: transform;
+  }
+  .aurora-orb-3 {
+    animation: aurora-float-3 22s ease-in-out infinite;
+    will-change: transform;
+  }
+  .aurora-orb-4 {
+    animation: aurora-float-4 26s ease-in-out infinite;
+    will-change: transform;
+  }
+  .aurora-orb-5 {
+    animation: aurora-float-5 30s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .particle-mote-1 { animation: particle-drift 9s ease-in-out infinite; }
+  .particle-mote-2 { animation: particle-drift 12s ease-in-out infinite 2s; }
+  .particle-mote-3 { animation: particle-drift 10s ease-in-out infinite 4s; }
+  .particle-mote-4 { animation: particle-drift 14s ease-in-out infinite 1s; }
+  .particle-mote-5 { animation: particle-drift 11s ease-in-out infinite 3s; }
+}
